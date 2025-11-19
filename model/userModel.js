@@ -15,6 +15,11 @@ const userSchema = new mongoose.Schema({
         required:true
 
     },
+    role:{
+        type:String,
+        enum: ['admin','user'],
+        required:true
+    },
     mobilenumber:{
         type: Number,
         required: true
@@ -22,5 +27,5 @@ const userSchema = new mongoose.Schema({
     },
 });
 
-const User = mongoose.model("user",username);
+const User = mongoose.model("authentication",userSchema);//authentication-collection name
 module.exports=User;
